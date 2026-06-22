@@ -1,0 +1,22 @@
+{
+  "name": "goodtake",
+  "owner": {
+    "name": "Goodtake",
+    "url": "https://goodtake.ai"
+  },
+  "plugins": [
+    {
+      "name": "goodtake",
+      "source": "./",
+      "description": "AI image generation via the Goodtake CLI",
+      "version": "0.1.0",
+      "skills": [
+        {
+          "name": "generate",
+          "path": "goodtake-generate",
+          "invoke": "/goodtake:generate"
+        }
+      ]
+    }
+  ]
+}

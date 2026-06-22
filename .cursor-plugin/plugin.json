@@ -1,0 +1,20 @@
+{
+  "name": "goodtake",
+  "version": "0.1.0",
+  "description": "AI image generation via the Goodtake CLI. Generate images from any Claude, Cursor, or Codex session.",
+  "author": {
+    "name": "Goodtake",
+    "url": "https://goodtake.ai"
+  },
+  "homepage": "https://goodtake.ai/cli",
+  "repository": "https://github.com/goodtake-ai/skills",
+  "license": "MIT",
+  "keywords": [
+    "image-generation",
+    "ai",
+    "goodtake",
+    "flux",
+    "dalle",
+    "text-to-image"
+  ]
+}

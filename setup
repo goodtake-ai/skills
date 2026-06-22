@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Idempotent installer — copies skills into ~/.claude/skills, ~/.cursor/skills, ~/.codex/skills
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VERSION="$(cat "${SCRIPT_DIR}/VERSION" | tr -d '[:space:]')"
+SKILLS=("goodtake-generate")
+
+install_skill() {
+  local target_dir="$1"
+  local skill="$2"
+  local dest="${target_dir}/${skill}"
+
+  if [ -d "${dest}" ]; then
+    rm -rf "${dest}"
+  fi
+  mkdir -p "${dest}"
+  cp -r "${SCRIPT_DIR}/${skill}/." "${dest}/"
+  echo "  ✓ Installed ${skill} → ${dest}"
+}
+
+echo "Goodtake Skills v${VERSION}"
+echo ""
+
+for agent_dir in "${HOME}/.claude/skills" "${HOME}/.cursor/skills" "${HOME}/.codex/skills"; do
+  if [ -d "$(dirname "${agent_dir}")" ]; then
+    mkdir -p "${agent_dir}"
+    for skill in "${SKILLS[@]}"; do
+      install_skill "${agent_dir}" "${skill}"
+    done
+  fi
+done
+
+echo ""
+echo "Done. Restart your agent to pick up the new skills."
+echo "Run /goodtake:generate or ask: 'generate an image of ...'"
