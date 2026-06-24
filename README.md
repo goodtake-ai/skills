@@ -45,7 +45,7 @@ The agent will invoke `gt generate image` and return the downloaded path or URL.
 Alternatively, add Goodtake as an MCP connector in Claude Settings:
 
 1. Open Claude → Settings → Connectors
-2. Add URL: `https://mcp.goodtake.ai/mcp`
+2. Add URL: `https://goodtake.ai/mcp`
 3. Click Connect and sign in
 
 ## Links
